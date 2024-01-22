@@ -37,7 +37,7 @@ class AppTheme {
 
   static TextStyle bodytextstyle(
       {FontWeight fontWeight = FontWeight.w200,
-      Color color = AppColors.textcolor,
+      Color color = AppColors.secondarycolor,
       double size = 28,
       bool underline = false,
       double height = 0.0,
@@ -50,4 +50,36 @@ class AppTheme {
         height: height,
         letterSpacing: letterSpacing);
   }
+
+  static TextStyle nametextstyle(
+      {FontWeight fontWeight = FontWeight.bold,
+      Color color = AppColors.secondarycolor,
+      double size = 36,
+      bool underline = false,
+      double height = 0.0,
+      double letterSpacing = 2.0}) {
+    return GoogleFonts.rubikBurned(
+        fontWeight: fontWeight,
+        color: color,
+        fontSize: size,
+        decoration: underline ? TextDecoration.underline : TextDecoration.none,
+        height: height,
+        letterSpacing: letterSpacing);
+  }
+
+  // static TextStyle developertextstyle(
+  //     {FontWeight fontWeight = FontWeight.bold,
+  //     Color color = AppColors.secondarycolor,
+  //     double size = 36,
+  //     bool underline = false,
+  //     double height = 0.0,
+  //     double letterSpacing = 2.0}) {
+  //   return GoogleFonts.rubikBurned(
+  //       fontWeight: fontWeight,
+  //       color: color,
+  //       fontSize: size,
+  //       decoration: underline ? TextDecoration.underline : TextDecoration.none,
+  //       height: height,
+  //       letterSpacing: letterSpacing);
+  // }
 }

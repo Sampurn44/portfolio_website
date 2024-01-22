@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.backgoundcolor,
       appBar: AppBar(
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: EdgeInsets.symmetric(vertical: size.height * 0.1),
               child: IconButton(
                 onPressed: () {},
                 icon: Image.asset(
@@ -29,7 +30,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: EdgeInsets.symmetric(vertical: size.height * 0.1),
               child: Text(
                 'My Portfolio',
                 style: AppTheme.portfoliotextstyle(
@@ -38,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(size.width * 0.01),
               child: TextButton(
                 child: Text(
                   'Home',
@@ -48,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(size.width * 0.01),
               child: TextButton(
                 child: Text(
                   'About',
@@ -58,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(size.width * 0.01),
               child: TextButton(
                 child: Text(
                   'Projects',
@@ -68,7 +69,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(size.width * 0.01),
               child: TextButton(
                 child: Text(
                   'Contact',
@@ -80,7 +81,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const Body(),
+      body: Body(),
     );
   }
 }
