@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^6.1.0
   animated_text_kit: ^4.2.2
   avatar_glow: ^3.0.1
+  animate_do: ^3.1.2
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +67,7 @@ flutter:
   assets:
     - assets/
     - assets/socialmedia/
+    - assets/personal/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
