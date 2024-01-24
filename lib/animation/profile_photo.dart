@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 
 class ProfilePhotoAnimation extends StatefulWidget {
-  const ProfilePhotoAnimation({super.key});
+  final Color backgroundcolor;
+  final String ImagePath;
+  const ProfilePhotoAnimation(
+      {required this.backgroundcolor, required this.ImagePath, super.key});
 
   @override
   State<ProfilePhotoAnimation> createState() => _ProfilePhotoAnimationState();
@@ -36,9 +40,9 @@ class _ProfilePhotoAnimationState extends State<ProfilePhotoAnimation>
       position: _animation,
       child: CircleAvatar(
         radius: 200,
-        backgroundColor: AppColors.containercolor,
+        backgroundColor: widget.backgroundcolor,
         child: Image.asset(
-          "assets/personal/profile2.png",
+          widget.ImagePath,
           width: 380,
           height: 400,
         ),

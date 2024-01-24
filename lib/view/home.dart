@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/body.dart';
+import 'package:portfolio_website/view/body.dart';
+import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
 
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               child: IconButton(
                 onPressed: () {},
                 icon: Image.asset(
-                  'assets/owl3.png',
+                  AppAssets.owl,
                   width: 90,
                   height: 120,
                 ),
@@ -53,6 +54,16 @@ class HomeScreen extends StatelessWidget {
               child: TextButton(
                 child: Text(
                   'About',
+                  style: AppTheme.headertextstyle(fontWeight: FontWeight.w500),
+                ),
+                onPressed: () {},
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(size.width * 0.01),
+              child: TextButton(
+                child: Text(
+                  'Highlights',
                   style: AppTheme.headertextstyle(fontWeight: FontWeight.w500),
                 ),
                 onPressed: () {},
