@@ -34,7 +34,7 @@ class _AnimatedSkillContainerState extends State<AnimatedSkillContainer> {
         child: AnimatedContainer(
           width: 85,
           height: 85,
-          duration: Duration(milliseconds: 600),
+          duration: Duration(milliseconds: 200),
           decoration: BoxDecoration(
               color: ishover
                   ? AppColors.creamyBackground

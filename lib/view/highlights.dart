@@ -161,69 +161,65 @@ class Highlights extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 text: "Experience",
-                style: AppTheme.nametextstyle(
-                    fontWeight: FontWeight.bold,
+                style: AppTheme.bodytextstyle(
+                    fontWeight: FontWeight.w900,
                     size: 50,
-                    color: AppColors.secondarycolor),
+                    color: AppColors.textcolor),
               ),
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 30,
           ),
           Padding(
-            padding: EdgeInsets.only(left: size.width * 0.1),
-            child: Row(
+            padding: EdgeInsets.only(
+                left: size.width * 0.05, right: size.width * 0.05),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Image.asset(
-                  AppAssets.trustique,
-                  width: 150,
-                  height: 150,
+                Text(
+                  "TRUSTIQUE ASSIST PRIVATE LIMITED",
+                  style: AppTheme.bodytextstyle(
+                      fontWeight: FontWeight.w900,
+                      color: AppColors.secondarycolor),
                 ),
-                SizedBox(
-                  width: size.width * 0.05,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+
+                Row(
                   children: [
-                    Text(
-                      "TRUSTIQUE ASSIST PRIVATE LIMITED",
-                      style: AppTheme.bodytextstyle(
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.textcolor),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
                     Text(
                       "Flutter Developer Internship",
                       style: AppTheme.headertextstyle(
                           fontWeight: FontWeight.w700,
                           color: AppColors.textcolor),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
+                    Spacer(),
                     Text(
-                      '• Developed and polished UI elements for a mobile app using Flutter.\n '
-                      ' Contributed to enhancing the overall user experience through intuitive and visually appealing design.\n '
-                      ' Gained valuable experience in UI development for Flutter applications.\n'
-                      '• Collaborated with a team of 3-5 members to implement the Firebase database integration.\n',
+                      "October'23 - December'23",
                       style: AppTheme.headertextstyle(
                           fontWeight: FontWeight.w500,
-                          color: AppColors.darkBackgroundColor,
-                          size: 20),
+                          color: AppColors.textcolor),
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 5,
+                ),
+                // Text(
+                //   '• Developed and polished UI elements for a mobile app using Flutter.\n '
+                //   ' Contributed to enhancing the overall user experience through intuitive and visually appealing design.\n '
+                //   ' Gained valuable experience in UI development for Flutter applications.\n'
+                //   '• Collaborated with a team of 3-5 members to implement the Firebase database integration.\n',
+                //   style: AppTheme.headertextstyle(
+                //       fontWeight: FontWeight.w500,
+                //       color: AppColors.darkBackgroundColor,
+                //       size: 20),
+                // ),
               ],
             ),
           ),
           SizedBox(
-            height: 50,
+            height: 200,
           ),
         ],
       ),
