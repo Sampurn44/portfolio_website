@@ -1,11 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/animation/profile_photo.dart';
 import 'package:portfolio_website/builder/skill_builder.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
-import 'package:portfolio_website/widgets/skills_button.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
-import 'package:styled_divider/styled_divider.dart';
 
 class Highlights extends StatelessWidget {
   const Highlights({super.key});
@@ -15,8 +14,10 @@ class Highlights extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
+      //height: size.height,
+      //alignment: Alignment.center,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
@@ -154,22 +155,48 @@ class Highlights extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 5,
           ),
-          FadeInRight(
-            duration: const Duration(milliseconds: 1600),
-            child: RichText(
-              text: TextSpan(
-                text: "Experience",
-                style: AppTheme.bodytextstyle(
-                    fontWeight: FontWeight.w900,
-                    size: 50,
-                    color: AppColors.textcolor),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            //crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              SizedBox(
+                width: size.width * 0.4,
               ),
-            ),
-          ),
-          SizedBox(
-            height: 30,
+              FadeInLeft(
+                duration: const Duration(milliseconds: 1600),
+                child: RichText(
+                  text: TextSpan(
+                    text: "Experience",
+                    style: AppTheme.bodytextstyle(
+                        fontWeight: FontWeight.w900,
+                        size: 50,
+                        color: AppColors.textcolor),
+                  ),
+                ),
+              ),
+
+              // SizedBox(
+              //   width: 1000,
+              // ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: FadeInRight(
+                      duration: Duration(milliseconds: 1600),
+                      child: Transform(
+                        transform: Matrix4.identity()..scale(-1.0, 1.0, 1.0),
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          AppAssets.profile3,
+                          height: 200,
+                          width: 200,
+                        ),
+                      )),
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -219,7 +246,7 @@ class Highlights extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 200,
+            height: 45,
           ),
         ],
       ),

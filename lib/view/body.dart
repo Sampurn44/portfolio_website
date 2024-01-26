@@ -4,7 +4,9 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/animation/profile_photo.dart';
 import 'package:portfolio_website/view/about_me.dart';
+import 'package:portfolio_website/view/contact_us.dart';
 import 'package:portfolio_website/view/highlights.dart';
+import 'package:portfolio_website/view/projects.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
@@ -35,7 +37,7 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FadeInDown(
-                        duration: Duration(milliseconds: 1200),
+                        duration: const Duration(milliseconds: 1200),
                         child: Text(
                           "Hi! I am ",
                           style: AppTheme.bodytextstyle(
@@ -46,7 +48,7 @@ class Body extends StatelessWidget {
                         height: size.height * 0.001,
                       ),
                       FadeInRight(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: Text(
                           "Sampurn Chouksey",
                           style: AppTheme.nametextstyle(
@@ -57,7 +59,7 @@ class Body extends StatelessWidget {
                         height: size.height * 0.001,
                       ),
                       FadeInLeft(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: Row(
                           children: [
                             Text(
@@ -98,7 +100,7 @@ class Body extends StatelessWidget {
                       SizedBox(
                         width: size.width * 0.5,
                         child: FadeInDown(
-                          duration: Duration(milliseconds: 1600),
+                          duration: const Duration(milliseconds: 1600),
                           child: Text(
                             'Aspiring to excel as a Flutter & Machine Learning Developer, I bring a strong foundation in C++,'
                             'Dart, and Python. Proficient in mobile app development and front-end technologies, I aspire to craft'
@@ -112,26 +114,26 @@ class Body extends StatelessWidget {
                         height: 22,
                       ),
                       FadeInUp(
-                        duration: Duration(milliseconds: 1600),
+                        duration: const Duration(milliseconds: 1600),
                         child: Row(
                           children: [
-                            SocialMediaIcon(AppAssets.github, onTap: () {}),
+                            socialmediaicon(AppAssets.github, onTap: () {}),
                             const SizedBox(
                               width: 12,
                             ),
-                            SocialMediaIcon(AppAssets.instagram, onTap: () {}),
+                            socialmediaicon(AppAssets.instagram, onTap: () {}),
                             const SizedBox(
                               width: 12,
                             ),
-                            SocialMediaIcon(AppAssets.linkedin, onTap: () {}),
+                            socialmediaicon(AppAssets.linkedin, onTap: () {}),
                             const SizedBox(
                               width: 12,
                             ),
-                            SocialMediaIcon(AppAssets.twitter, onTap: () {}),
+                            socialmediaicon(AppAssets.twitter, onTap: () {}),
                             const SizedBox(
                               width: 12,
                             ),
-                            SocialMediaIcon(AppAssets.medium, onTap: () {})
+                            socialmediaicon(AppAssets.medium, onTap: () {})
                           ],
                         ),
                       ),
@@ -139,7 +141,7 @@ class Body extends StatelessWidget {
                         height: 22,
                       ),
                       FadeInUp(
-                        duration: Duration(milliseconds: 1800),
+                        duration: const Duration(milliseconds: 1800),
                         child: materailbuttonforresume(
                           onTap: () {},
                         ),
@@ -154,14 +156,16 @@ class Body extends StatelessWidget {
                       ImagePath: AppAssets.profile1),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 190,
               ),
-              AboutMe(),
-              SizedBox(
+              const AboutMe(),
+              const SizedBox(
                 height: 40,
               ),
-              Highlights(),
+              const Highlights(),
+              const Project(),
+              const ContactUs(),
             ],
           ),
         ),
@@ -176,6 +180,13 @@ class Body extends StatelessWidget {
       elevation: 6,
       focusElevation: 12,
       splashColor: const Color.fromARGB(255, 4, 231, 121),
+      shape: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      hoverColor: AppColors.backgoundcolor,
+      height: 55,
+      minWidth: 130,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: Text(
@@ -184,18 +195,11 @@ class Body extends StatelessWidget {
               fontWeight: FontWeight.w800, color: AppColors.secondarycolor),
         ),
       ),
-      shape: OutlineInputBorder(
-        borderSide: BorderSide.none,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      hoverColor: AppColors.backgoundcolor,
-      height: 55,
-      minWidth: 130,
     );
   }
 }
 
-AvatarGlow SocialMediaIcon(String ImagePath, {required VoidCallback onTap}) {
+AvatarGlow socialmediaicon(String imagePath, {required VoidCallback onTap}) {
   return AvatarGlow(
     glowRadiusFactor: 0.3,
     startDelay: const Duration(milliseconds: 1500),
@@ -208,7 +212,7 @@ AvatarGlow SocialMediaIcon(String ImagePath, {required VoidCallback onTap}) {
       child: Ink(
         width: 50,
         height: 50,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             //border: Border.all(color: AppColors.secondarycolor, width: 0),
             color: AppColors.backgoundcolor,
             shape: BoxShape.circle),
@@ -221,7 +225,7 @@ AvatarGlow SocialMediaIcon(String ImagePath, {required VoidCallback onTap}) {
             onTap: onTap,
             radius: 50,
             child: Image.asset(
-              ImagePath,
+              imagePath,
               width: 10,
               height: 12,
               color: AppColors.secondarycolor,

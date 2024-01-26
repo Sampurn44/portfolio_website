@@ -69,6 +69,7 @@ flutter:
     - assets/
     - assets/socialmedia/
     - assets/personal/
+    - assets/projects/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
