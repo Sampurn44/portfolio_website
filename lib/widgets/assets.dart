@@ -8,6 +8,9 @@ class AppAssets {
   static String profile2 = 'assets/personal/profile3.png';
   static String profile3 = 'assets/personal/profile4.png';
   static String profile4 = 'assets/personal/profile5.png';
+  static String profile5 = 'assets/personal/profile6.png';
+  static String profile6 = 'assets/personal/profile7.png';
+
   static String trustique = 'assets/logo.jpg';
   static String owl = 'assets/owl3.png';
 

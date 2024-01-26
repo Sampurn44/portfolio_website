@@ -4,16 +4,30 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/animation/profile_photo.dart';
 import 'package:portfolio_website/view/about_me.dart';
-import 'package:portfolio_website/view/contact_us.dart';
+import 'package:portfolio_website/view/contact_me.dart';
+import 'package:portfolio_website/view/footer.dart';
 import 'package:portfolio_website/view/highlights.dart';
 import 'package:portfolio_website/view/projects.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  final socialMedia = <String>[
+    AppAssets.github,
+    AppAssets.instagram,
+    AppAssets.linkedin,
+    AppAssets.twitter,
+    AppAssets.medium
+  ];
+  var SocialBI;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -114,29 +128,60 @@ class Body extends StatelessWidget {
                         height: 22,
                       ),
                       FadeInUp(
-                        duration: const Duration(milliseconds: 1600),
-                        child: Row(
-                          children: [
-                            socialmediaicon(AppAssets.github, onTap: () {}),
-                            const SizedBox(
-                              width: 12,
+                          duration: const Duration(milliseconds: 1600),
+                          child: SizedBox(
+                            height: 50,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              separatorBuilder: (context, child) => SizedBox(
+                                width: 12,
+                              ),
+                              itemCount: socialMedia.length,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {},
+                                  onHover: (value) {
+                                    setState(() {
+                                      if (value) {
+                                        SocialBI = index;
+                                      } else {
+                                        SocialBI = null;
+                                      }
+                                    });
+                                  },
+                                  borderRadius: BorderRadius.circular(550.0),
+                                  hoverColor: AppColors.secondarycolor,
+                                  splashColor: AppColors.containercolor,
+                                  child: socialmediaicon(socialMedia[index],
+                                      onHover:
+                                          SocialBI == index ? true : false),
+                                );
+                              },
                             ),
-                            socialmediaicon(AppAssets.instagram, onTap: () {}),
-                            const SizedBox(
-                              width: 12,
-                            ),
-                            socialmediaicon(AppAssets.linkedin, onTap: () {}),
-                            const SizedBox(
-                              width: 12,
-                            ),
-                            socialmediaicon(AppAssets.twitter, onTap: () {}),
-                            const SizedBox(
-                              width: 12,
-                            ),
-                            socialmediaicon(AppAssets.medium, onTap: () {})
-                          ],
-                        ),
-                      ),
+                          )
+                          // Row(
+                          //   children: [
+                          //     socialmediaicon(AppAssets.github, onTap: () {}),
+                          //     const SizedBox(
+                          //       width: 12,
+                          //     ),
+                          //     socialmediaicon(AppAssets.instagram, onTap: () {}),
+                          //     const SizedBox(
+                          //       width: 12,
+                          //     ),
+                          //     socialmediaicon(AppAssets.linkedin, onTap: () {}),
+                          //     const SizedBox(
+                          //       width: 12,
+                          //     ),
+                          //     socialmediaicon(AppAssets.twitter, onTap: () {}),
+                          //     const SizedBox(
+                          //       width: 12,
+                          //     ),
+                          //     socialmediaicon(AppAssets.medium, onTap: () {})
+                          //   ],
+                          // ),
+                          ),
                       const SizedBox(
                         height: 22,
                       ),
@@ -165,7 +210,8 @@ class Body extends StatelessWidget {
               ),
               const Highlights(),
               const Project(),
-              const ContactUs(),
+              // ContactUs(),
+              FooterClass(),
             ],
           ),
         ),
@@ -199,7 +245,7 @@ class Body extends StatelessWidget {
   }
 }
 
-AvatarGlow socialmediaicon(String imagePath, {required VoidCallback onTap}) {
+AvatarGlow socialmediaicon(String imagePath, {required bool onHover}) {
   return AvatarGlow(
     glowRadiusFactor: 0.3,
     startDelay: const Duration(milliseconds: 1500),
@@ -210,8 +256,8 @@ AvatarGlow socialmediaicon(String imagePath, {required VoidCallback onTap}) {
       maxRadius: 22,
       backgroundColor: AppColors.backgoundcolor,
       child: Ink(
-        width: 50,
-        height: 50,
+        width: 45,
+        height: 45,
         decoration: const BoxDecoration(
             //border: Border.all(color: AppColors.secondarycolor, width: 0),
             color: AppColors.backgoundcolor,
@@ -222,13 +268,14 @@ AvatarGlow socialmediaicon(String imagePath, {required VoidCallback onTap}) {
             borderRadius: BorderRadius.circular(500.0),
             hoverColor: AppColors.containercolor,
             splashColor: AppColors.secondarycolor,
-            onTap: onTap,
+            //onTap: onTap,
             radius: 50,
             child: Image.asset(
               imagePath,
               width: 10,
               height: 12,
-              color: AppColors.secondarycolor,
+              color:
+                  onHover ? AppColors.containercolor : AppColors.secondarycolor,
               fit: BoxFit.fill,
             ),
           ),
@@ -237,3 +284,23 @@ AvatarGlow socialmediaicon(String imagePath, {required VoidCallback onTap}) {
     ),
   );
 }
+
+//  Ink buildSocialButton({required String asset, required bool hover}) {
+//     return Ink(
+//       width: 45,
+//       height: 45,
+//       decoration: BoxDecoration(
+//         border: Border.all(color: AppColors.secondarycolor, width: 2.0),
+//         color: AppColors.backgoundcolor,
+//         shape: BoxShape.circle,
+//       ),
+//       padding: const EdgeInsets.all(6),
+//       child: Image.asset(
+//         asset,
+//         width: 10,
+//         height: 12,
+//         color: hover ? AppColors.bgColor : AppColors.themeColor,
+//         // fit: BoxFit.fill,
+//       ),
+//     );
+//   }

@@ -60,7 +60,7 @@ class _ProjectState extends State<Project> {
       child: Container(
         color: AppColors.creamyBackground,
         width: size.width,
-        // height: size.height,
+        height: size.height,
         alignment: Alignment.center,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -75,8 +75,8 @@ class _ProjectState extends State<Project> {
               children: [
                 Image.asset(
                   AppAssets.profile4,
-                  height: 200,
-                  width: 200,
+                  height: 150,
+                  width: 150,
                 ),
                 SizedBox(
                   width: size.width * 0.27,
