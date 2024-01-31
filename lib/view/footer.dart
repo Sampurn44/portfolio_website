@@ -65,42 +65,12 @@ class FooterClass extends StatelessWidget {
               ),
             ],
           ),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppColors.containercolor),
-              child: const Icon(
-                Icons.arrow_upward,
-                size: 25,
-                color: Colors.black,
-              ),
-            ),
-          ),
         ],
       ),
       tablet: Column(
         children: [
           SizedBox(
             height: 50,
-          ),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppColors.containercolor),
-              child: const Icon(
-                Icons.arrow_upward,
-                size: 25,
-                color: Colors.black,
-              ),
-            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,21 +121,6 @@ class FooterClass extends StatelessWidget {
         children: [
           SizedBox(
             height: 50,
-          ),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppColors.containercolor),
-              child: const Icon(
-                Icons.arrow_upward,
-                size: 25,
-                color: Colors.black,
-              ),
-            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

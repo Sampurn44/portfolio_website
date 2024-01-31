@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/animation/profile_photo.dart';
 import 'package:portfolio_website/helper/helper_class.dart';
+import 'package:portfolio_website/utils/link_launcher.dart';
 import 'package:portfolio_website/view/about_me.dart';
 import 'package:portfolio_website/view/contact_me.dart';
 import 'package:portfolio_website/view/footer.dart';
@@ -22,12 +23,15 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  final socialMedia = <String>[
-    AppAssets.github,
-    AppAssets.instagram,
-    AppAssets.linkedin,
-    AppAssets.twitter,
-    AppAssets.medium
+  final socialMedia = [
+    [AppAssets.github, 'https://github.com/Sampurn44'],
+    [AppAssets.instagram, 'https://www.instagram.com/_sampurn__/'],
+    [
+      AppAssets.linkedin,
+      'https://www.linkedin.com/in/sampurn-chouksey-072a23220/'
+    ],
+    [AppAssets.twitter, 'https://twitter.com/Sampurn_44'],
+    [AppAssets.medium, 'https://medium.com/@sampurn10chouksey'],
   ];
   var SocialBI;
   @override
@@ -181,8 +185,9 @@ class _BodyState extends State<Body> {
                     borderRadius: BorderRadius.circular(550.0),
                     hoverColor: AppColors.secondarycolor,
                     splashColor: AppColors.containercolor,
-                    child: socialmediaicon(socialMedia[index],
-                        onHover: SocialBI == index ? true : false),
+                    child: socialmediaicon(socialMedia[index][0],
+                        onHover: SocialBI == index ? true : false,
+                        link: socialMedia[index][1]),
                   );
                 },
               ),
@@ -215,7 +220,10 @@ class _BodyState extends State<Body> {
         FadeInUp(
           duration: const Duration(milliseconds: 1800),
           child: materailbuttonforresume(
-            onTap: () {},
+            onTap: () {
+              LinkLauncher.launchURL(
+                  'https://drive.google.com/file/d/1IqUHRhMLqVfsOuBaQWUKY1rduM-ZFwJp/view?usp=sharing');
+            },
           ),
         ),
 
@@ -252,7 +260,8 @@ class _BodyState extends State<Body> {
   }
 }
 
-AvatarGlow socialmediaicon(String imagePath, {required bool onHover}) {
+AvatarGlow socialmediaicon(String imagePath,
+    {required bool onHover, required String link}) {
   return AvatarGlow(
     glowRadiusFactor: 0.3,
     startDelay: const Duration(milliseconds: 1500),
@@ -272,6 +281,9 @@ AvatarGlow socialmediaicon(String imagePath, {required bool onHover}) {
         child: Padding(
           padding: const EdgeInsets.all(6.9),
           child: InkWell(
+            onTap: () {
+              LinkLauncher.launchURL(link);
+            },
             borderRadius: BorderRadius.circular(500.0),
             hoverColor: AppColors.containercolor,
             splashColor: AppColors.secondarycolor,
@@ -291,194 +303,3 @@ AvatarGlow socialmediaicon(String imagePath, {required bool onHover}) {
     ),
   );
 }
-
-//  Ink buildSocialButton({required String asset, required bool hover}) {
-//     return Ink(
-//       width: 45,
-//       height: 45,
-//       decoration: BoxDecoration(
-//         border: Border.all(color: AppColors.secondarycolor, width: 2.0),
-//         color: AppColors.backgoundcolor,
-//         shape: BoxShape.circle,
-//       ),
-//       padding: const EdgeInsets.all(6),
-//       child: Image.asset(
-//         asset,
-//         width: 10,
-//         height: 12,
-//         color: hover ? AppColors.bgColor : AppColors.themeColor,
-//         // fit: BoxFit.fill,
-//       ),
-//     );
-//   }
-//        LayoutBuilder(builder: (context, constraints) {
-//         if (constraints.maxWidth < 768) {
-//           return
-//         } else {
-//           return Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             crossAxisAlignment: CrossAxisAlignment.end,
-//             children: [
-//               Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 //mainAxisAlignment: MainAxisAlignment.end,
-//                 mainAxisSize: MainAxisSize.min,
-//                 children: [
-//                   FadeInDown(
-//                     duration: const Duration(milliseconds: 1200),
-//                     child: Text(
-//                       "Hi! I am ",
-//                       style:
-//                           AppTheme.bodytextstyle(fontWeight: FontWeight.w700),
-//                     ),
-//                   ),
-//                   SizedBox(
-//                     height: size.height * 0.001,
-//                   ),
-//                   FadeInRight(
-//                     duration: const Duration(milliseconds: 1400),
-//                     child: Text(
-//                       "Sampurn Chouksey",
-//                       style: AppTheme.nametextstyle(
-//                           fontWeight: FontWeight.w900, size: 45),
-//                     ),
-//                   ),
-//                   SizedBox(
-//                     height: size.height * 0.001,
-//                   ),
-//                   FadeInLeft(
-//                     duration: const Duration(milliseconds: 1400),
-//                     child: Row(
-//                       children: [
-//                         Text(
-//                           "And I'm a ",
-//                           style: AppTheme.bodytextstyle(
-//                               fontWeight: FontWeight.w900, size: 40),
-//                         ),
-//                         AnimatedTextKit(
-//                           animatedTexts: [
-//                             TyperAnimatedText(
-//                               'Flutter Developer',
-//                               textStyle: AppTheme.bodytextstyle(
-//                                   fontWeight: FontWeight.w900,
-//                                   size: 40,
-//                                   color: AppColors.textcolor),
-//                             ),
-//                             TyperAnimatedText(
-//                               'ML enthusiast',
-//                               textStyle: AppTheme.bodytextstyle(
-//                                   fontWeight: FontWeight.w900,
-//                                   size: 40,
-//                                   color: AppColors.textcolor),
-//                             ),
-//                             TyperAnimatedText(
-//                               'C++ Coder',
-//                               textStyle: AppTheme.bodytextstyle(
-//                                   fontWeight: FontWeight.w900,
-//                                   size: 40,
-//                                   color: AppColors.textcolor),
-//                             ),
-//                           ],
-//                           isRepeatingAnimation: true,
-//                           repeatForever: true,
-//                         )
-//                       ],
-//                     ),
-//                   ),
-//                   SizedBox(
-//                     width: size.width * 0.5,
-//                     child: FadeInDown(
-//                       duration: const Duration(milliseconds: 1600),
-//                       child: Text(
-//                         'Aspiring to excel as a Flutter & Machine Learning Developer, I bring a strong foundation in C++,'
-//                         'Dart, and Python. Proficient in mobile app development and front-end technologies, I aspire to craft'
-//                         ' innovative cross-platform apps and leverage machine learning algorithms. Committed to driving results through my skills and passion for technology.',
-//                         style: AppTheme.bodytextstyle(
-//                             size: 15, fontWeight: FontWeight.w500),
-//                       ),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 22,
-//                   ),
-//                   FadeInUp(
-//                       duration: const Duration(milliseconds: 1600),
-//                       child: SizedBox(
-//                         height: 50,
-//                         child: ListView.separated(
-//                           scrollDirection: Axis.horizontal,
-//                           separatorBuilder: (context, child) => SizedBox(
-//                             width: 12,
-//                           ),
-//                           itemCount: socialMedia.length,
-//                           shrinkWrap: true,
-//                           itemBuilder: (context, index) {
-//                             return InkWell(
-//                               onTap: () {},
-//                               onHover: (value) {
-//                                 setState(() {
-//                                   if (value) {
-//                                     SocialBI = index;
-//                                   } else {
-//                                     SocialBI = null;
-//                                   }
-//                                 });
-//                               },
-//                               borderRadius: BorderRadius.circular(550.0),
-//                               hoverColor: AppColors.secondarycolor,
-//                               splashColor: AppColors.containercolor,
-//                               child: socialmediaicon(socialMedia[index],
-//                                   onHover: SocialBI == index ? true : false),
-//                             );
-//                           },
-//                         ),
-//                       )
-//                       // Row(
-//                       //   children: [
-//                       //     socialmediaicon(AppAssets.github, onTap: () {}),
-//                       //     const SizedBox(
-//                       //       width: 12,
-//                       //     ),
-//                       //     socialmediaicon(AppAssets.instagram, onTap: () {}),
-//                       //     const SizedBox(
-//                       //       width: 12,
-//                       //     ),
-//                       //     socialmediaicon(AppAssets.linkedin, onTap: () {}),
-//                       //     const SizedBox(
-//                       //       width: 12,
-//                       //     ),
-//                       //     socialmediaicon(AppAssets.twitter, onTap: () {}),
-//                       //     const SizedBox(
-//                       //       width: 12,
-//                       //     ),
-//                       //     socialmediaicon(AppAssets.medium, onTap: () {})
-//                       //   ],
-//                       // ),
-//                       ),
-//                   const SizedBox(
-//                     height: 22,
-//                   ),
-//                   FadeInUp(
-//                     duration: const Duration(milliseconds: 1800),
-//                     child: materailbuttonforresume(
-//                       onTap: () {},
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//               SizedBox(
-//                 width: 30,
-//               ),
-//               Expanded(
-//                 child: SizedBox(
-//                   width: double.infinity,
-//                   child: ProfilePhotoAnimation(
-//                     backgroundcolor: AppColors.containercolor,
-//                     ImagePath: AppAssets.profile1,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           );
-//         }
-//       }),

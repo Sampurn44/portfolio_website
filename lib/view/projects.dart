@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/helper/helper_class.dart';
+import 'package:portfolio_website/utils/link_launcher.dart';
 import 'package:portfolio_website/view/footer.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
@@ -19,37 +20,37 @@ class _ProjectState extends State<Project> {
       AppAssets.project,
       "MEMORABLE PLACE",
       "The ultimate Flutter app! Capture and save your favorite spots with photos, accessing them on Google Maps anytime using its api. Effortless location selection, automatic address detection, and secure on-device storage ensure unforgettable memories at your fingertips",
-      "https://github.com/repo1",
+      "https://github.com/Sampurn44/favourite_place",
     ],
     [
       AppAssets.project1,
       "DIAGNO WEB",
       "Led the development of DiagnoWeb, a Django-based disease prediction app. Integrated Decision Tree, Naive Bayes, and Random Forest models for accurate predictions. Demonstrated expertise in deploying and optimizing machine learning models for practical applications.",
-      "https://github.com/repo2",
+      "https://github.com/Sampurn44/DiagnoWeb",
     ],
     [
       AppAssets.project4,
       "PORTFOLIO WEBSITE",
       "Designed my personal portfolio using Flutter, featuring a dynamic and responsive showcase of skills and projects.",
-      "https://github.com/repo3",
+      "https://github.com/Sampurn44/portfolio_website",
     ],
     [
       AppAssets.project,
       "MEALS-APP",
-      "Meet The Meals App – your go-to culinary companion! Discover a variety of dishes, plan budget-friendly meals, and access quick recipes with estimated cooking times. Save your favorites and enjoy a seamless experience with customizable filters. Elevate your culinary journey effortlessly!",
-      "https://github.com/repo4",
+      "Meet The Meals App your go-to culinary companion! Discover a variety of dishes, plan budget-friendly meals, and access quick recipes with estimated cooking times. Save your favorites and enjoy a seamless experience with customizable filters. Elevate your culinary journey effortlessly!",
+      "https://github.com/Sampurn44/meals_app",
     ],
     [
       AppAssets.project3,
       "FLAPPY BIRD",
       "Flappy Bird reimagined in Flutter! Experience the classic game with smooth controls, vibrant graphics, and addictive gameplay. Flutter Flappy Bird brings nostalgic fun to your mobile device. Flap, dodge pipes, and aim for high scores in this Flutter-powered adventure.",
-      "https://github.com/repo4",
+      "https://github.com/Sampurn44/flappy_bird",
     ],
     [
       AppAssets.project2,
       "TRUSTIQUE",
       "This Flutter app offers seamless user authentication through Google Sign-In, real-time messaging using Firebase Firestore Also provide convenient location sharing, user search, and essential features like unread message indicators and message status.",
-      "https://github.com/repo5",
+      "https://github.com/Sampurn44/Trustique",
     ],
   ];
 
@@ -179,7 +180,7 @@ class _ProjectState extends State<Project> {
 
           var projectTitle = images[index][1];
           var projectDetail = images[index][2];
-          var githubRepoLink = images[index][3];
+          String githubRepoLink = images[index][3];
           return MouseRegion(
             onEnter: (_) {
               setState(() {
@@ -248,7 +249,9 @@ class _ProjectState extends State<Project> {
                           ),
                           Spacer(),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              LinkLauncher.launchURL(githubRepoLink);
+                            },
                             icon: Image.asset(
                               AppAssets.github,
                               height: 30,
