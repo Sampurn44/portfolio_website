@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/helper/helper_class.dart';
+import 'package:portfolio_website/view/footer.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
@@ -57,161 +59,232 @@ class _ProjectState extends State<Project> {
     final Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Container(
-        color: AppColors.creamyBackground,
-        width: size.width,
-        height: size.height,
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppAssets.profile4,
-                  height: 150,
-                  width: 150,
-                ),
-                SizedBox(
-                  width: size.width * 0.27,
-                ),
-                FadeInRight(
-                  duration: const Duration(milliseconds: 1600),
-                  child: RichText(
-                    text: TextSpan(
-                      text: "My ",
-                      style: AppTheme.bodytextstyle(
-                        fontWeight: FontWeight.w900,
-                        size: 50,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: '"Work"',
-                          style: AppTheme.nametextstyle(
-                            fontWeight: FontWeight.w900,
-                            color: AppColors.textcolor,
-                            size: 50,
-                          ),
-                        ),
-                      ],
+      child: HelperClass(
+          mobile: Column(
+            mainAxisSize: MainAxisSize.min,
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Image.asset(
+                      AppAssets.profile4,
+                      height: 150,
+                      width: 150,
                     ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            GridView.builder(
-                itemCount: images.length,
-                shrinkWrap: true,
-                padding: EdgeInsets.symmetric(
-                  horizontal: size.width * 0.05,
-                ),
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisExtent: 250,
-                    mainAxisSpacing: 24,
-                    crossAxisSpacing: 20),
-                itemBuilder: (context, index) {
-                  var image = images[index][0];
+                  SizedBox(
+                    width: size.height * 0.27,
+                  ),
+                  projecttext()
+                ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              buildGridView(size, CrossAxisCount: 1),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+          tablet: Column(
+            mainAxisSize: MainAxisSize.min,
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    AppAssets.profile4,
+                    height: 150,
+                    width: 150,
+                  ),
+                  SizedBox(
+                    width: size.width * 0.27,
+                  ),
+                  projecttext()
+                ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              buildGridView(size, CrossAxisCount: 2),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+          desktop: Column(
+            mainAxisSize: MainAxisSize.min,
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    AppAssets.profile4,
+                    height: 150,
+                    width: 150,
+                  ),
+                  SizedBox(
+                    width: size.width * 0.27,
+                  ),
+                  projecttext(),
+                ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              buildGridView(size, CrossAxisCount: 3),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+          paddingWidth: size.width * 0.01,
+          bgColor: AppColors.creamyBackground),
+    );
+  }
 
-                  var projectTitle = images[index][1];
-                  var projectDetail = images[index][2];
-                  var githubRepoLink = images[index][3];
-                  return MouseRegion(
-                    onEnter: (_) {
-                      setState(() {
-                        HoverIndex = index;
-                      });
-                    },
-                    onExit: (_) {
-                      setState(() {
-                        HoverIndex = null;
-                      });
-                    },
-                    child: FadeInUpBig(
-                      duration: Duration(milliseconds: 1600),
-                      child: Stack(
+  GridView buildGridView(Size size, {required int CrossAxisCount}) {
+    return GridView.builder(
+        itemCount: images.length,
+        shrinkWrap: true,
+        padding: EdgeInsets.symmetric(
+          horizontal: size.width * 0.05,
+        ),
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: CrossAxisCount,
+            mainAxisExtent: 250,
+            mainAxisSpacing: 24,
+            crossAxisSpacing: 20),
+        itemBuilder: (context, index) {
+          var image = images[index][0];
+
+          var projectTitle = images[index][1];
+          var projectDetail = images[index][2];
+          var githubRepoLink = images[index][3];
+          return MouseRegion(
+            onEnter: (_) {
+              setState(() {
+                HoverIndex = index;
+              });
+            },
+            onExit: (_) {
+              setState(() {
+                HoverIndex = null;
+              });
+            },
+            child: FadeInUpBig(
+              duration: Duration(milliseconds: 1600),
+              child: Stack(
+                children: [
+                  InkWell(
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: AssetImage(image),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      )),
+                  Visibility(
+                    visible: index == HoverIndex,
+                    child: AnimatedContainer(
+                      padding: EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.containercolor.withOpacity(0.9),
+                            AppColors.containercolor.withOpacity(0.8),
+                            AppColors.containercolor.withOpacity(0.7),
+                            AppColors.containercolor.withOpacity(0.6),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      duration: Duration(milliseconds: 200),
+                      child: Column(
                         children: [
-                          InkWell(
-                            onTap: () {},
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image(
-                                image: AssetImage(image),
-                                fit: BoxFit.fill,
-                              ),
+                          Text(
+                            projectTitle,
+                            style: AppTheme.bodytextstyle(
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.darkBackgroundColor,
+                              size: 24,
                             ),
                           ),
-                          Visibility(
-                            visible: index == HoverIndex,
-                            child: AnimatedContainer(
-                              padding: EdgeInsets.all(14),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    AppColors.containercolor.withOpacity(0.9),
-                                    AppColors.containercolor.withOpacity(0.8),
-                                    AppColors.containercolor.withOpacity(0.7),
-                                    AppColors.containercolor.withOpacity(0.6),
-                                  ],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                ),
-                              ),
-                              duration: Duration(milliseconds: 200),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    projectTitle,
-                                    style: AppTheme.bodytextstyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.darkBackgroundColor,
-                                      size: 24,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    projectDetail,
-                                    style: AppTheme.bodytextstyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.white,
-                                      size: 15,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Spacer(),
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Image.asset(
-                                      AppAssets.github,
-                                      height: 30,
-                                      width: 30,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            projectDetail,
+                            style: AppTheme.bodytextstyle(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              AppAssets.github,
+                              height: 30,
+                              width: 30,
                             ),
                           ),
                         ],
                       ),
                     ),
-                  );
-                }),
-            SizedBox(
-              height: 20,
-            )
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  FadeInRight projecttext() {
+    return FadeInRight(
+      duration: const Duration(milliseconds: 1600),
+      child: RichText(
+        text: TextSpan(
+          text: "My ",
+          style: AppTheme.bodytextstyle(
+            fontWeight: FontWeight.w900,
+            size: 50,
+          ),
+          children: [
+            TextSpan(
+              text: '"Work"',
+              style: AppTheme.nametextstyle(
+                fontWeight: FontWeight.w900,
+                color: AppColors.textcolor,
+                size: 50,
+              ),
+            ),
           ],
         ),
       ),

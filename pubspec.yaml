@@ -41,6 +41,7 @@ dependencies:
   animate_do: ^3.1.2
   url_launcher: ^6.2.4
   styled_divider: ^1.0.5
+  scrollable_positioned_list: ^0.3.8
 
 dev_dependencies:
   flutter_test:
@@ -70,7 +71,7 @@ flutter:
     - assets/socialmedia/
     - assets/personal/
     - assets/projects/
-    
+    - assets/skills/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

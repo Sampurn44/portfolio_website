@@ -52,7 +52,7 @@ class _AnimatedSkillContainerState extends State<AnimatedSkillContainer> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(widget.imagePath, width: 30, height: 30),
+              Image.asset(widget.imagePath, width: 30, height: 30),
               SizedBox(height: 5),
               Text(
                 widget.name,

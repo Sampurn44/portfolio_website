@@ -6,6 +6,7 @@ class HelperClass extends StatelessWidget {
   final Widget desktop;
   final double paddingWidth;
   final Color bgColor;
+  final bool isfotter;
   const HelperClass({
     super.key,
     required this.mobile,
@@ -13,6 +14,7 @@ class HelperClass extends StatelessWidget {
     required this.desktop,
     required this.paddingWidth,
     required this.bgColor,
+    this.isfotter = false,
   });
 
   @override
@@ -21,12 +23,12 @@ class HelperClass extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < 768) {
         return Container(
-          // height: size.height,
+          //height: size.height,
           width: size.width,
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-              vertical: size.height * 0.05, horizontal: 18),
+              vertical: size.height * 0.1, horizontal: paddingWidth),
           child: mobile,
         );
       } else if (constraints.maxWidth < 1200) {
@@ -41,12 +43,12 @@ class HelperClass extends StatelessWidget {
         );
       } else {
         return Container(
-          // height: size.height,
+          height: isfotter ? 307 : size.height,
           width: size.width,
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-              vertical: size.height * 0.18, horizontal: paddingWidth),
+              vertical: size.height * 0.01, horizontal: paddingWidth),
           child: desktop,
         );
       }

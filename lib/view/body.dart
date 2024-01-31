@@ -62,7 +62,7 @@ class _BodyState extends State<Body> {
           //),
         ],
       ),
-      paddingWidth: size.width * 0.1,
+      paddingWidth: size.width * 0.07,
       bgColor: Colors.transparent,
     );
   }
@@ -110,7 +110,7 @@ class _BodyState extends State<Body> {
                     'Flutter Developer',
                     textStyle: AppTheme.bodytextstyle(
                         fontWeight: FontWeight.w900,
-                        size: 24,
+                        size: 23,
                         color: AppColors.textcolor),
                   ),
                   TyperAnimatedText(
