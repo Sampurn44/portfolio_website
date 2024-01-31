@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/animation/profile_photo.dart';
 import 'package:portfolio_website/builder/skill_builder.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
@@ -12,7 +11,7 @@ class Highlights extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       //height: size.height,
       //alignment: Alignment.center,
@@ -20,7 +19,7 @@ class Highlights extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           FadeInRight(
@@ -44,7 +43,7 @@ class Highlights extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -67,7 +66,7 @@ class Highlights extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SkillsBuilder(),
@@ -87,11 +86,11 @@ class Highlights extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Skills2Builder(),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     FadeInRight(
@@ -106,7 +105,7 @@ class Highlights extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Skills4Builder(),
@@ -126,11 +125,11 @@ class Highlights extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Skills3Builder(),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     FadeInRight(
@@ -145,7 +144,7 @@ class Highlights extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Skills5Builder(),
@@ -154,7 +153,7 @@ class Highlights extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Row(
@@ -184,7 +183,7 @@ class Highlights extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: FadeInRight(
-                      duration: Duration(milliseconds: 1600),
+                      duration: const Duration(milliseconds: 1600),
                       child: Transform(
                         transform: Matrix4.identity()..scale(-1.0, 1.0, 1.0),
                         alignment: Alignment.center,
@@ -220,7 +219,7 @@ class Highlights extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: AppColors.textcolor),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       "October'23 - December'23",
                       style: AppTheme.headertextstyle(
@@ -229,7 +228,7 @@ class Highlights extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 // Text(
@@ -245,7 +244,7 @@ class Highlights extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
         ],

@@ -6,7 +6,9 @@ class ProfilePhotoAnimation extends StatefulWidget {
   final Color backgroundcolor;
   final String ImagePath;
   const ProfilePhotoAnimation(
-      {required this.backgroundcolor, required this.ImagePath, super.key});
+      {this.backgroundcolor = AppColors.containercolor,
+      this.ImagePath = 'assets/personal/profile2.png',
+      super.key});
 
   @override
   State<ProfilePhotoAnimation> createState() => _ProfilePhotoAnimationState();

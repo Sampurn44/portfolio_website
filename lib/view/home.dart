@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/view/body.dart';
+import 'package:portfolio_website/view/main_dashboard.dart';
 import 'package:portfolio_website/widgets/assets.dart';
 import 'package:portfolio_website/widgets/colors.dart';
 import 'package:portfolio_website/widgets/text_theme.dart';
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Body(),
+      body: MainDashBoard(),
     );
   }
 
