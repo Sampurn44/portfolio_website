@@ -124,13 +124,10 @@ class AboutMe extends StatelessWidget {
         FadeInDown(
           duration: Duration(milliseconds: 2000),
           child: Text(
-            'In my pursuit of excelling as a versatile Flutter and Machine Learning Developer, I proudly bring to the table a robust'
-            'foundation in prominent programming languages, including C++, Dart, and Python. Leveraging my adeptness in mobile app development'
-            ' and comprehensive knowledge of front-end technologies, my overarching goal is to orchestrate the creation of groundbreaking '
-            'cross-platform applications while seamlessly integrating advanced machine learning algorithms. My commitment to driving impactful results'
-            ' is deeply rooted in a fusion of skillful expertise and an unwavering passion for technology. Within this dynamic realm, '
-            'I am resolute in my dedication to not only meet but exceed the ever-evolving expectations,'
-            'contributing to the forefront of innovation in the symbiotic landscape of mobile development and machine learning.',
+            "Hey folks,I'm Sampurn Chouksey, currently on a quest through the tech realms as a B.Tech explorer at Jaypee University of Engineering and Technology, Guna. By day,"
+            " I'm the wizard behind Flutter, crafting apps smoother than a salsa dancer's moves. As the sun sets, I dive into the captivating landscapes of Artificial Intelligence and Machine Learning."
+            "In this grand adventure of tech, I'm pursuing a B.Tech in Computer Science and Engineering with a specialization in AI/ML. Picture it as crafting code that dances to its own beat—a symphony of logic and creativity."
+            "I believe that programming should be a joyful odyssey, filled with surprises and discoveries. So, whether you're a fellow coding wizard, a tech aficionado, or just stumbled upon this digital haven, welcome! Let's turn this journey into a tech fiesta where innovation meets a sprinkle of laughter.",
             style: AppTheme.bodytextstyle(
                 size: 17,
                 fontWeight: FontWeight.w500,

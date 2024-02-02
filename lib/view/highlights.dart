@@ -248,13 +248,13 @@ class Highlights extends StatelessWidget {
                   SkillsBuilder(skills: Skills2List.skills)),
               const SizedBox(height: 5),
               buildSkillCategory(
-                  "AI/ML", SkillsBuilder(skills: Skills3List.skills)),
+                  "AI/ML", SkillsBuilder(skills: Skills4List.skills)),
             ],
           ),
           Column(
             children: [
               buildSkillCategory(
-                  "Database", SkillsBuilder(skills: Skills4List.skills)),
+                  "Database", SkillsBuilder(skills: Skills3List.skills)),
               const SizedBox(height: 5),
               buildSkillCategory(
                   "Other", SkillsBuilder(skills: Skills5List.skills)),

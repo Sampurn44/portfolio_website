@@ -197,7 +197,9 @@ class _ProjectState extends State<Project> {
               child: Stack(
                 children: [
                   InkWell(
-                      onTap: () {},
+                      onDoubleTap: () {
+                        LinkLauncher.launchURL(githubRepoLink);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
